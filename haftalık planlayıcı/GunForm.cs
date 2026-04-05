@@ -22,7 +22,6 @@ namespace HaftalikAjanda
 
             OrtalaGunEkrani();
 
-            // Daha önce kaydedilmiş görevleri yükle
             if (anaForm.Gorevler.ContainsKey(gunAdi))
             {
                 foreach (Gorev gorev in anaForm.Gorevler[gunAdi])
@@ -31,11 +30,9 @@ namespace HaftalikAjanda
                 }
             }
 
-            // Görev sayısını güncelle
             anaForm.GorevSayisiniGuncelle(gunAdi);
         }
 
-        // Pencere boyutu değiştiğinde ortala
         private void GunForm_Resize(object sender, EventArgs e)
         {
             OrtalaGunEkrani();
@@ -43,15 +40,12 @@ namespace HaftalikAjanda
 
         private void OrtalaGunEkrani()
         {
-            // Gün adı label
             lblGunAdi.Left = (this.ClientSize.Width - lblGunAdi.Width) / 2;
             lblGunAdi.Top = 20;
 
-            // Görevler FlowLayoutPanel
             flpGorevler.Left = (this.ClientSize.Width - flpGorevler.Width) / 2;
             flpGorevler.Top = 70;
 
-            // Görev ekle butonu
             btnGorevEkle.Left = (this.ClientSize.Width - btnGorevEkle.Width) / 2;
             btnGorevEkle.Top = flpGorevler.Bottom + 10;
         }
@@ -70,7 +64,6 @@ namespace HaftalikAjanda
 
             GorevPanelOlustur(yeniGorev);
 
-            // Görev sayısını güncelle
             anaForm.GorevSayisiniGuncelle(gunAdi);
         }
 
